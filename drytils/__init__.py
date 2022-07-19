@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
-# <one line to give the program's name and a brief idea of what it does.>
+# drytils - Don't-Repeat-Yourself collection of utility functions using only the Python
+# standard library as dependency.
+#
 # Copyright (C) 2022  Dennis Hedback
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,3 +17,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+"""drytils.
+
+Don't-Repeat-Yourself collection of utility functions using only the Python
+standard library as dependency.
+"""
