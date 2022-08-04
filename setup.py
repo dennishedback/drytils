@@ -8,9 +8,11 @@ from setuptools import setup
 
 setup(
     name="drytils",
-    version="0.1.0",
-    description="Don't-Repeat-Yourself collection of utility functions using only the"
-    "Python standard library as dependency.",
+    version="0.1.1",
+    description=(
+        "Don't-Repeat-Yourself collection of utility functions using only the"
+        "Python standard library as dependency."
+    ),
     long_description=open(
         os.path.join(os.path.abspath(os.path.dirname(__file__)), "README.md")
     ).read(),
