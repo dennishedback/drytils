@@ -22,11 +22,14 @@
 
 
 import sys
-from typing import Any
+from typing import Callable, TextIO
 
 
 def yes_or_no(
-    prompt: str = "Continue?", default: bool = False, file_: Any = sys.stdout
+    prompt: str = "Continue?",
+    default: bool = False,
+    print_callback: Callable[[str], None] = None,
+    file_: TextIO = sys.stdout,
 ) -> bool:
     """Prompts the user for yes/no or variants such as YES, y, Y.
 
@@ -36,13 +39,23 @@ def yes_or_no(
 
     `default`: True if yes is default, False if no is default.
 
+    `print_callback`: Supply a custom callback on the form func(x: str). Use print()
+                      if None.
+
+    `file_`: File-like resource to use in calls to print(). If print_callback is
+             specified, this will be ignored.
+
     ### Returns:
 
     Boolean indicating whether the user answered yes or no. True is yes,
     False is no.
     """
     default_str = "Y/n" if default else "y/N"
-    print("{0} [{1}]".format(prompt, default_str), end=" ", file=file_)
+    print_str = "{0} [{1}]".format(prompt, default_str)
+    if not print_callback:
+        print(print_str, end=" ", file=file_)
+    else:
+        print_callback(print_str)
     answer = input()
     if len(answer) == 0:
         return default
